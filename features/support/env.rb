@@ -23,8 +23,6 @@ browser_name = case ENV["BROWSER"]
                   :selenium
                 when 'sauce'
                   :saucelabs
-                when 'phantomjs'
-                  :poltergeist
                 end
 
 Capybara.default_driver = browser_name
@@ -99,28 +97,28 @@ end
 # end
 
 
-# Capybara.register_driver :saucelabs do |app|
-#   username_saucelabs = ENV['SAUCELABS_USERNAME'] # username saucelabs yang diambil dari .env
-#   key_saucelabs = ENV['SAUCELABS_ACCESS_KEY'] # access key saucelabs yang diambil dari .env
-#
-#   caps = {
-#     :os => platform_version,
-#     :platform => platform,
-#     :browserName => browser_saucelabs,
-#     :browserVersion => browser_version,
-#     :name => "SEITC-#{Time.now.to_i}",
-#     :build => "TEST-SEIT_Icad",
-#   }
-#
-#   url = "https://#{username_saucelabs}:#{key_saucelabs}@ondemand.saucelabs.com/wd/hub" #url saucelabs yang akan diakses
-#
-#   #set capailities yang akan digunakan
-#   @driver = Capybara::Selenium::Driver.new(app, {
-#     browser: :remote,
-#     url: url,
-#     desired_capabilities: caps}
-#   )
-#   # SauceWhisk::Jobs.change_status(@driver.browser.session_id, scenario.passed?)
-# end
+Capybara.register_driver :saucelabs do |app|
+  username_saucelabs = ENV['SAUCELABS_USERNAME'] # username saucelabs yang diambil dari .env
+  key_saucelabs = ENV['SAUCELABS_ACCESS_KEY'] # access key saucelabs yang diambil dari .env
+
+  caps = {
+    :os => platform_version,
+    :platform => platform,
+    :browserName => browser_saucelabs,
+    :browserVersion => browser_version,
+    :name => "SEITBSUHA-#{Time.now.to_i}",
+    :build => "SEIT_Suha",
+  }
+
+  url = "https://#{username_saucelabs}:#{key_saucelabs}@ondemand.saucelabs.com/wd/hub" #url saucelabs yang akan diakses
+
+  #set capailities yang akan digunakan
+  @driver = Capybara::Selenium::Driver.new(app, {
+    browser: :remote,
+    url: url,
+    desired_capabilities: caps}
+  )
+  # SauceWhisk::Jobs.change_status(@driver.browser.session_id, scenario.passed?)
+end
 
 Capybara.current_driver = browser_name

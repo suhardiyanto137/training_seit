@@ -72,5 +72,4 @@ group :test do
 end
 
 gem "tempmailru"
-gem "curb"
 gem "faker"

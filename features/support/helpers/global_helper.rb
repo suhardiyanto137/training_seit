@@ -65,6 +65,12 @@ module CustomWorld
       json = JSON.parse(item_params.body)
   end
 
+  # visit library page
+  def visit_library_item_library
+    visit "/library/list"
+    top_loading_bar
+    page.should have_content('Item Library')
+  end
 end
 
 World(CustomWorld)
