@@ -1,7 +1,5 @@
 When(/^I access Library > Item Library$/) do
-  visit "/library/list"
-  top_loading_bar
-  page.should have_content('Item Library')
+  visit_library_item_library
 end
 
 Then(/^I Create Item (\d+) and (\d+)$/) do |arg1, arg2|
@@ -21,7 +19,7 @@ end
 Then(/^I should see (\d+) on Item list and count existing Item$/) do |arg1|
   expect(page).to have_css("table > tbody > tr > td:nth-child(1)", text: "Item #{arg1}")
 end
-# 
+#
 # Then(/^I clear Item with (\d+)$/) do |arg1|
 #   find("table > tbody > tr > td:nth-child(1)", :text => "Item #{arg1}").click
 #   top_loading_bar
