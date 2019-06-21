@@ -49,6 +49,8 @@ group :development, :test do
   gem 'sauce_whisk'
   gem 'knapsack'
   gem 'fetcher'
+  gem 'minitest-reporters'
+  gem "minitest-rails-capybara"
 end
 
 group :development do
@@ -72,4 +74,5 @@ group :test do
 end
 
 gem "tempmailru"
+gem "curb"
 gem "faker"

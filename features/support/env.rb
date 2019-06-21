@@ -110,7 +110,8 @@ Capybara.register_driver :saucelabs do |app|
     :build => "SEIT_Suha",
   }
 
-  url = "https://#{username_saucelabs}:#{key_saucelabs}@ondemand.saucelabs.com/wd/hub" #url saucelabs yang akan diakses
+  url = "https://#{username_saucelabs}:#{key_saucelabs}@ondemand.saucelabs.com/wd/hub"
+  #url yang akan diakses
 
   #set capailities yang akan digunakan
   @driver = Capybara::Selenium::Driver.new(app, {

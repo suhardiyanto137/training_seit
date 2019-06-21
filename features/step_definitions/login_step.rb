@@ -1,16 +1,16 @@
 Given(/^navigate backoffice$/) do
-  visit "/"
+  access_login_page
 end
 
 Then(/^input email and password$/) do
-  fill_in "email", :with => "mimo4@mailnesia.com"
-  fill_in "password", :with => "123456"
+  login_page_fill_email
+  login_page_fill_password
 end
 
 When(/^click button sign in$/) do
-  find('.btn.btn-primary.btn-block.has-spinner').click
+  login_page_click_login
 end
 
 When(/^should see dashboard page$/) do
-  page.should have_content('Dashboard')
+  access_dashboard_page
 end
