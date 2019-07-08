@@ -121,6 +121,12 @@ module CustomWorld
     top_loading_bar
     page.should have_content('Item Library')
   end
+
+  def visit_report_transactions
+    visit "/reports/transactions"
+    top_loading_bar
+    page.should have_content("Transactions")
+  end
 end
 
 World(CustomWorld)

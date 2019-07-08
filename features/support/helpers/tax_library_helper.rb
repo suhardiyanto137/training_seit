@@ -28,7 +28,7 @@ module TaxLibrary
 
 
   def check_tax_list(param)
-    expect(page).to have_css("table > tbody > tr > td:nth-child(1)", :text => param)
+    expect(page).to have_css("table > tbody > tr:nth-child(1) > td:nth-child(1)", :text => param)
   end
 
 
